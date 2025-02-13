@@ -15,6 +15,7 @@ spec:
       containers:
       - name: web
         image: afzalhaider1/webapp:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 
