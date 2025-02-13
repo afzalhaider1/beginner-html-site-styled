@@ -8,13 +8,13 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'ctr image build --tag afzalhaider1/webapp:latest beginner-html-site-styled/Dockerfile'
+                sh 'sudo docker build -t afzalhaider1/webapp:latest .'
             }
         }
         stage('Push Docker Image') {
             steps {
                 withDockerRegistry([credentialsId: 'dockerhub']) {
-                    sh 'ctr image push afzalhaider1/webapp:latest'
+                    sh 'sudo docker push afzalhaider1/webapp:latest'
                 }
             }        
         }
