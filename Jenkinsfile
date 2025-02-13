@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t afzalhaider1/webapp:latest .'
+                sh 'nerdctl build -t afzalhaider1/webapp:latest .'
             }
         }
         stage('Push Docker Image') {
