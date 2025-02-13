@@ -8,13 +8,13 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'nerdctl build -t afzalhaider1/webapp:latest .'
+                sh 'ctr image build --tag afzalhaider1/webapp:latest .'
             }
         }
         stage('Push Docker Image') {
             steps {
                 withDockerRegistry([credentialsId: 'dockerhub']) {
-                    sh 'docker push afzalhaider1/webapp:latest'
+                    sh 'ctr image push afzalhaider1/webapp:latest'
                 }
             }        
         }
