@@ -13,7 +13,8 @@ pipeline {
         }
         stage('Push Docker Image') {
             steps {
-                withDockerRegistry([credentialsId: 'dockerhub']) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh 'sudo docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"'
                     sh 'sudo docker push afzalhaider1/webapp:latest'
                 }
             }        
