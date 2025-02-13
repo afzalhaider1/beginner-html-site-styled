@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                sh 'git clone https://github.com/afzalhaider1/beginner-html-site-styled.git'
+                git branch: 'gh-pages', url: 'https://github.com/afzalhaider1/beginner-html-site-styled.git'
             }
         }
         stage('Build Docker Image') {
