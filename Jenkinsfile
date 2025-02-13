@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'ctr image build --tag afzalhaider1/webapp:latest .'
+                sh 'ctr image build --tag afzalhaider1/webapp:latest Dockerfile'
             }
         }
         stage('Push Docker Image') {
