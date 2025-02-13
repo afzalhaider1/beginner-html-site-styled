@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker rmi -f $(sudo docker images "webapp" -q)'
+                sh 'sudo docker rmi -f $(sudo docker images "afzalhaider1/webapp" -q)'
                 sh 'sudo docker build -t afzalhaider1/webapp:latest .'
             }
         }
