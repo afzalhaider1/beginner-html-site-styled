@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker build -t afzalhaider1/webapp:latest .'
+                sh 'sudo docker build -t afzalhaider1/webapp .'
             }
         }
         stage('Push Docker Image') {
