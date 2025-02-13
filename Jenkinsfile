@@ -22,6 +22,7 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
+                sh 'kubectl delete -f deploy.yml'
                 sh 'kubectl apply -f deploy.yml'
                 sh 'kubectl apply -f svc.yml'
             }
